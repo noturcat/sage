@@ -1,0 +1,70 @@
+.buttonPill {
+	display: inline-flex;
+	padding: 4px 16px;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	flex-shrink: 0;
+	cursor: pointer;
+	background: var(--jh-green-04);
+	color: var(--white);
+	text-align: center;
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 28.28px;
+	border-radius: 60px;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		color: var(--white);
+		background-color: var(--jh-green-03);
+	}
+
+	&.outlined {
+		background-color: transparent;
+		color: var(--black);
+		border: 1px solid var(--black);
+		&:hover {
+			color: var(--white);
+			background-color: var(--jh-green-01);
+			border-color: var(--jh-green-02);
+		}
+		&:active {
+			border-color: var(--jh-green-02);
+		}
+
+		&.active {
+			color: var(--white);
+			background-color: var(--jh-green-01);
+			border-color: var(--jh-green-02);
+		}
+	}
+
+	&.secondary {
+		background-color: var(--white);
+		color: var(--black);
+		border-color: var(--jh-gray-05);
+
+		&:hover {
+			color: var(--white);
+			background-color: var(--jh-gray-01);
+		}
+	}
+
+	&.ghost {
+		background-color: transparent;
+		color: var(--black);
+		border-color: transparent;
+
+		&:hover {
+			color: var(--white);
+			background-color: var(--jh-green-01);
+		}
+	}
+
+	&.disabled {
+		opacity: 0.8;
+		cursor: not-allowed;
+	}
+}
