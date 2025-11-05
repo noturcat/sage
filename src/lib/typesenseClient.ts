@@ -13,12 +13,19 @@ export type TypesenseEnvConfig = {
 }
 
 function readEnv(): TypesenseEnvConfig {
+	const sanitize = (v: string | undefined) => {
+		const t = (v ?? '').trim()
+		return t.length > 0 ? t : undefined
+	}
+
 	return {
-		host: process.env.NEXT_PUBLIC_TYPESENSE_HOST,
-		port: process.env.NEXT_PUBLIC_TYPESENSE_PORT,
-		protocol: process.env.NEXT_PUBLIC_TYPESENSE_PROTOCOL,
-		searchKey: process.env.NEXT_PUBLIC_TYPESENSE_SEARCH_KEY,
-		timeoutSeconds: Number(process.env.NEXT_PUBLIC_TYPESENSE_TIMEOUT_SECONDS || 10),
+		host: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_HOST),
+		port: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_PORT),
+		protocol: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_PROTOCOL),
+		searchKey: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_SEARCH_KEY),
+		timeoutSeconds: Number(
+			(process.env.NEXT_PUBLIC_TYPESENSE_TIMEOUT_SECONDS || '10').toString().trim()
+		),
 	}
 }
 
