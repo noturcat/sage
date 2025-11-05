@@ -1,0 +1,113 @@
+@use '@/styles/mixins.scss' as *;
+
+.card {
+	position: relative;
+	border-radius: 0.75em;
+	background:
+		linear-gradient(180deg, rgba(var(--black-rgb), 0.6) -30%, rgba(var(--jh-green-06-rgb), 1) 100%),
+		var(--image-url, none) center / cover no-repeat;
+	height: 100%;
+	width: 100%;
+	cursor: pointer;
+}
+
+.title {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+	line-clamp: 2;
+	overflow: hidden;
+	text-wrap: balance;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	padding: 2em;
+	color: var(--white);
+	gap: 0.75em;
+	height: 100%;
+}
+
+.description {
+	flex: 1;
+	font-size: 0.88rem;
+	font-weight: 400;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	overflow: hidden;
+	text-wrap: balance;
+}
+
+.iconArrowSlant {
+	@include icon('/icons/arrow-slant.svg', 12px);
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.authorSection {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.authorInfo {
+	display: flex;
+	align-items: center;
+	font-size: 0.75rem;
+	gap: 0.5em;
+}
+
+.badgeGroup {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+}
+
+.interactions {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	font-size: 0.75rem;
+	font-weight: 500;
+
+	& > span {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+	}
+}
+
+.pill {
+	background-color: transparent;
+	color: var(--white);
+	border: 1px solid var(--white);
+}
+
+.ellipsis {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0.5em;
+	background-color: transparent;
+	color: var(--white);
+	border-color: var(--white);
+}
+
+.iconEllipsis {
+	@include icon('/icons/ellipsis.svg', 12px);
+}
+
+.iconChevronUp {
+	@include icon('/icons/chevron-up.svg', 12px);
+}
+
+.iconChats {
+	@include icon('/icons/chats-outline.svg', 12px);
+}

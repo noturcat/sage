@@ -1,0 +1,159 @@
+.textareaWrapper {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+
+.iconWrapper {
+	position: relative;
+	display: flex;
+	align-items: flex-start;
+	width: 100%;
+}
+
+// Textarea Element
+.textarea {
+	width: 100%;
+	min-height: 80px;
+	padding: 12px 16px;
+	border-radius: 8px;
+	background-color: var(--white);
+	font-size: 14px;
+	font-weight: 400;
+	line-height: 1.5;
+	resize: vertical;
+	transition: all 0.2s ease-in-out;
+	outline: none;
+	border: 1px solid var(--jh-gray-03);
+	display: flex;
+	align-items: center;
+	gap: 0.75em;
+	padding: 0.25em 0.75em;
+	background-color: var(--white);
+	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+	&:disabled {
+		background-color: var(--jh-gray-09);
+		color: var(--jh-gray-03);
+		cursor: not-allowed;
+	}
+
+	// Error state
+	&[data-error='true'] {
+		border-color: var(--jh-red-01);
+
+		&:focus {
+			border-color: var(--jh-red-01);
+			box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+		}
+	}
+}
+
+// Icon Styling
+.textareaIcon {
+	position: absolute;
+	top: 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 20px;
+	height: 20px;
+	color: var(--jh-gray-03);
+	pointer-events: none;
+	z-index: 1;
+
+	&:first-child {
+		left: 16px;
+	}
+
+	&:last-child {
+		right: 16px;
+	}
+}
+
+// Adjust textarea padding when icons are present
+.iconWrapper .textarea {
+	&:has(+ .textareaIcon:last-child) {
+		padding-right: 48px;
+	}
+}
+
+.textareaWrapper:has(.textareaIcon:first-child) .textarea {
+	padding-left: 48px;
+}
+
+// Border Radius Variants
+.radius--sm {
+	.textarea {
+		border-radius: 4px;
+	}
+}
+
+.radius--md {
+	.textarea {
+		border-radius: 8px;
+	}
+}
+
+.radius--lg {
+	.textarea {
+		border-radius: 12px;
+	}
+}
+
+.radius--xl {
+	.textarea {
+		border-radius: 16px;
+	}
+}
+
+.radius--2xl {
+	.textarea {
+		border-radius: 20px;
+	}
+}
+
+.radius--3xl {
+	.textarea {
+		border-radius: 24px;
+	}
+}
+
+.radius--full {
+	.textarea {
+		border-radius: 9999px;
+	}
+}
+
+// Size Variants
+.textarea--sm {
+	.textarea {
+		min-height: 60px;
+		padding: 8px 12px;
+		font-size: 12px;
+	}
+}
+
+.textarea--md {
+	.textarea {
+		min-height: 80px;
+		padding: 12px 16px;
+		font-size: 14px;
+	}
+}
+
+.textarea--lg {
+	.textarea {
+		min-height: 100px;
+		padding: 16px 20px;
+		font-size: 16px;
+	}
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+	.textarea {
+		font-size: 16px; // Prevent zoom on iOS
+	}
+}

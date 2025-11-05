@@ -1,0 +1,130 @@
+@use '@/styles/mixins.scss' as *;
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 100%;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	width: 100%;
+	padding: 1.38em;
+	gap: 0.63rem;
+	border-radius: 0.75rem;
+	border: 1px solid var(--jh-gray-08);
+	box-shadow: 0 1px 2px 0 rgba(var(--shadow-dark-rgb), 0.05);
+}
+
+.content {
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	width: 100%;
+
+	ul {
+		list-style: disc;
+		padding-left: 1.5em;
+		line-height: 1.5em;
+	}
+
+	ol {
+		list-style: decimal;
+		padding-left: 1.5em;
+		line-height: 2em;
+	}
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	gap: 0.63em;
+	width: 100%;
+	cursor: pointer;
+}
+
+.details:not([open]) {
+	gap: 0;
+}
+
+.summary {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	list-style: none;
+}
+
+.answer {
+	padding-left: 1.75em;
+}
+
+.summary::-webkit-details-marker {
+	display: none;
+} /* Chrome/Safari */
+.summary::marker {
+	content: '';
+}
+
+.summaryContent {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 0.5ch;
+	flex-grow: 1;
+}
+
+.questionContent,
+.answerContent {
+	display: flex;
+	align-items: center;
+	gap: 0.5ch;
+	flex: 1;
+	width: 100%;
+}
+
+.input {
+	border: none;
+	box-shadow: none;
+	background-color: transparent;
+	width: 100%;
+	flex: 1;
+}
+
+.questionContent [data-slot='form-item'],
+.questionContent [data-slot='form-control'],
+.answerContent [data-slot='form-item'],
+.answerContent [data-slot='form-control'] {
+	flex: 1;
+	width: 100%;
+}
+
+.iconChevron {
+	margin-left: auto;
+	transition: transform 200ms ease; /* chevron anim */
+	@include icon('/icons/chevron-up.svg');
+}
+
+/* rotate when open */
+.details[open] .iconChevron {
+	transform: rotate(180deg);
+}
+
+/* optional: opening fade/slide (open-only, no close) */
+.details[open] > *:not(summary) {
+	animation: expand 600ms ease;
+}
+@keyframes expand {
+	from {
+		opacity: 0;
+		translate: 0 -4px;
+	}
+	to {
+		opacity: 1;
+		translate: 0 0;
+	}
+}

@@ -1,0 +1,55 @@
+@use '@/styles/mixins.scss' as *;
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 64px;
+  padding: 80px 0;
+}
+
+.heading {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	text-align: center;
+	color: var(--jh-green-04);
+	font-style: normal;
+
+	.subHeading {
+		font-size: 20px;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.title {
+		font-size: 65px;
+		font-weight: 900;
+		line-height: 1.08;
+	}
+
+	.subtitle {
+		font-size: 42px;
+		font-weight: 400;
+		line-height: 1.08;
+	}
+}
+
+.iconX {
+	@include icon('/icons/x.svg');
+
+	&:hover {
+		background-color: rgba(var(--black-rgb), 0.8);
+	}
+}
+
+.iconSearch {
+	@include icon('/icons/search.svg');
+
+	&:hover {
+		background-color: rgba(var(--jh-green-01-rgb), 0.8);
+	}
+}
+
+.search {
+	width: 100%;
+}

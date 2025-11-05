@@ -1,0 +1,22 @@
+.whoToFollow {
+	display: flex;
+	flex-direction: column;
+	gap: 1.25em;
+	width: 100%;
+}
+
+.whoToFollowList {
+	display: flex;
+	flex-direction: column;
+	gap: 1.53em;
+	width: 100%;
+}
+
+.seeMore {
+	cursor: pointer;
+	color: var(--jh-gray-14);
+	font-size: 0.75rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1em;
+}

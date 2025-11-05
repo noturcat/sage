@@ -1,0 +1,17 @@
+@use '@/styles/mixins' as *;
+
+.edit {
+	position: absolute;
+	top: 1.5rem;
+	right: 1.5rem;
+	flex-shrink: 0;
+
+	.iconEdit {
+		color: var(--jh-green-01);
+		@include icon('/icons/pencil.svg');
+	}
+}
+
+.input {
+	display: none;
+}

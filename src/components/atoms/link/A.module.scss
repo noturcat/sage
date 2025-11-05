@@ -1,0 +1,21 @@
+.a {
+  color: var(--black);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.33;
+
+  &.underline {
+    text-decoration: underline;
+  }
+
+  &.underline-blue {
+    color: var(--jh-blue-01);
+    text-decoration: underline;
+  }
+
+  &.white {
+    color: var(--white);
+    font-size: 18px;
+  }
+}

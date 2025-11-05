@@ -1,0 +1,22 @@
+@use '@/styles/mixins.scss' as *;
+
+.search {
+	display: flex;
+	align-items: center;
+}
+
+.iconX {
+	@include icon('/icons/x.svg');
+
+	&:hover {
+		background-color: rgba(var(--black-rgb), 0.8);
+	}
+}
+
+.iconSearch {
+	@include icon('/icons/search.svg');
+
+	&:hover {
+		background-color: rgba(var(--jh-green-01-rgb), 0.8);
+	}
+}

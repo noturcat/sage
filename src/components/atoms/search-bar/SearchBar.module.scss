@@ -1,0 +1,116 @@
+.center {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+
+	.root {
+		position: relative;
+		display: inline-flex;
+		align-items: center;
+		min-width: 100%;
+		background: var(--white);
+		border-radius: 999px;
+		padding: 20px 24px;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		box-shadow: 0 4px 30px 0 rgba(0, 0, 0, 0.10);
+		transition: box-shadow 0.2s ease, border-color 0.2s ease;
+	}
+
+	.root:focus-within {
+		border-color: var(--jh-green-01);
+		box-shadow: 0 0 0 3px rgba(24, 172, 106, 0.2);
+	}
+
+	.input {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-shrink: 0;
+		flex: 1;
+		width: 100%;
+		padding-right: 32px;
+		background: transparent;
+		outline: none;
+		color: var(--black);
+		font-size: 18px;
+		caret-color: var(--jh-green-01);
+
+		&::placeholder {
+			color: var(--jh-gray-01);
+			font-size: 18px;
+			font-weight: 500;
+			line-height: 1.56;
+		}
+
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+			appearance: none;
+			display: none;
+		}
+	}
+
+	.clearButton {
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		transform: translateY(-50%);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		border-radius: 999px;
+		background: transparent;
+		color: var(--jh-gray-02);
+		transition: background-color 0.2s ease;
+
+		.icon {
+			display: block;
+		}
+	}
+	.clearButton:hover,
+	.clearButton:focus-visible {
+		background-color: rgba(0, 0, 0, 0.06);
+	}
+
+	.iconButton {
+		position: absolute;
+		right: 16px;
+		top: 50%;
+		transform: translateY(-50%);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 36px;
+		height: 36px;
+		background: transparent;
+		color: var(--jh-green-01);
+		border-radius: 999px;
+		transition: background-color 0.2s ease;
+	}
+
+	.iconButton:hover,
+	.iconButton:focus-visible {
+		background-color: rgba(24, 172, 106, 0.1);
+	}
+}
+
+.ghostWrapper {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ghost {
+  color: var(--black);
+	font-size: 18px;
+}
+
+.cursor {
+  opacity: 1;
+}

@@ -1,0 +1,93 @@
+@use '@/styles/mixins' as *;
+
+.chatDetailsContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	.chatDetailsHeader {
+		.title {
+			color: var(--jh-green-03);
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 16px; /* 80% */
+		}
+
+		.iconBackButton {
+			background-color: transparent;
+			color: var(--jh-green-04);
+
+			&:hover {
+				background-color: transparent;
+			}
+
+			.iconBack {
+				@include icon('/icons/chevron-left.svg', 16px);
+				background-color: var(--jh-green-04);
+			}
+		}
+	}
+
+	.chatDetailsUser {
+		padding: 0 20px;
+	}
+
+	.muteMessagesContainer {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		padding: 0 20px;
+
+		.muteMessagesContent {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			flex: 1;
+			.iconBell {
+				color: var(--jh-green-04);
+				@include icon('/icons/notification-bell-outline.svg', 20px);
+			}
+
+			.muteMessagesTitle {
+				color: var(--jh-green-03);
+				font-size: 14px;
+				font-weight: 700;
+				line-height: 16px; /* 100% */
+			}
+		}
+	}
+
+	.mainDetailsContainer {
+		flex: 1;
+	}
+
+	.actionsContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 26px;
+
+		.actionItem {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			color: var(--jh-red-01);
+			font-size: 14px;
+			font-weight: 700;
+			line-height: 16px; /* 100% */
+			cursor: pointer;
+			transition: color 0.3s ease;
+
+			.iconReport {
+				@include icon('/icons/report.svg', 18px);
+			}
+
+			.iconBlock {
+				@include icon('/icons/block.svg', 18px);
+			}
+
+			.iconDelete {
+				@include icon('/icons/trash.svg', 18px);
+			}
+		}
+	}
+}

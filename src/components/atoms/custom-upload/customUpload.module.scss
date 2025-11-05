@@ -1,0 +1,173 @@
+.imageUpload {
+	display: flex;
+	align-items: center;
+	border-radius: 12px;
+	width: 100%;
+	background: var(--jh-gray-08);
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+
+	.imageUploadContent {
+		width: 100%;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		border-radius: 12px;
+		transition: all 0.2s ease-in-out;
+
+		&.dragOver {
+			background: var(--jh-blue-05);
+			border: 2px dashed var(--jh-blue-01);
+		}
+
+		&.disabled {
+			opacity: 0.5;
+			cursor: not-allowed;
+		}
+
+		.uploadContent {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 12px;
+			.imageUploadIcon {
+				padding: 0;
+			}
+			.bordered {
+				background: transparent;
+				padding: 18px;
+				border-radius: 6px;
+				border: 1px dashed var(--jh-gray-02);
+			}
+			.uploadContentText {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 4px;
+
+				.uploadLabel {
+					color: var(--jh-gray-02);
+					font-size: 12px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 16px;
+					text-align: center;
+					white-space: nowrap;
+					cursor: pointer;
+				}
+				.uploadSpan {
+					color: var(--jh-gray-02);
+					font-size: 10px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 11.868px;
+				}
+			}
+		}
+	}
+
+	.row {
+		flex-direction: row;
+		gap: 12px;
+	}
+
+	.column {
+		flex-direction: column;
+		gap: 8px;
+	}
+
+	.hiddenInput {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+		overflow: hidden;
+	}
+
+	.imagePreview {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: 12px;
+
+		.previewImage {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 12px;
+		}
+
+		.removeButton {
+			position: absolute;
+			top: 8px;
+			right: 8px;
+			background: var(--white);
+			border: 1px solid var(--jh-gray-08);
+			border-radius: 50%;
+			width: 32px;
+			height: 32px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			cursor: pointer;
+			transition: all 0.2s ease-in-out;
+			box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+			.removeButtonIcon {
+				padding: 0;
+			}
+
+			&:hover {
+				background: var(--jh-red-05);
+			}
+		}
+	}
+
+	.errorMessage {
+		position: absolute;
+		bottom: 8px;
+		left: 50%;
+		transform: translateX(-50%);
+		background: var(--jh-red-01);
+		color: var(--white);
+		padding: 4px 8px;
+		border-radius: 4px;
+		font-size: 10px;
+		font-weight: 500;
+		white-space: nowrap;
+		z-index: 10;
+	}
+
+	// Responsive sizing
+	@media (max-width: 768px) {
+		.imageUploadContent {
+			padding: 16px;
+			min-height: 150px;
+		}
+	}
+
+	// Large size variant
+	&.large {
+		.imageUploadContent {
+			min-height: 400px;
+			padding: 40px;
+		}
+	}
+
+	// Full cover variant
+	&.fullCover {
+		.imageUploadContent {
+			min-height: 500px;
+			padding: 0;
+		}
+	}
+}

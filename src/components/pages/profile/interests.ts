@@ -1,0 +1,17 @@
+export const interests = [
+	{ value: 'long-reading', label: 'Reading Very Long Books About Complex Topics' },
+	{ value: 'long-writing', label: 'Creative Writing and Storytelling for Beginners' },
+	{ value: 'long-coding', label: 'Advanced Programming and Software Development' },
+	{ value: 'reading', label: 'Reading' },
+	{ value: 'writing', label: 'Writing' },
+	{ value: 'coding', label: 'Coding' },
+	{ value: 'gaming', label: 'Gaming' },
+	{ value: 'music', label: 'Music' },
+	{ value: 'travel', label: 'Travel' },
+	{ value: 'food', label: 'Food' },
+	{ value: 'art', label: 'Art' },
+	{ value: 'science', label: 'Science' },
+	{ value: 'technology', label: 'Technology' },
+	{ value: 'history', label: 'History' },
+	{ value: 'math', label: 'Math' },
+]

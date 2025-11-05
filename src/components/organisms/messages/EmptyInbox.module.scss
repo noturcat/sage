@@ -1,0 +1,30 @@
+@use '@/styles/mixins' as *;
+
+.emptyInboxContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+	width: 100%;
+
+	.emptyInboxIcon {
+		@include icon('/icons/inbox.svg', 44px);
+		background-color: var(--jh-green-04);
+		margin-bottom: 1.44rem; // 23px
+	}
+
+	.emptyInboxText {
+		color: var(--jh-green-04);
+		font-size: 1rem; // 16px
+		font-weight: 700;
+		line-height: 1; // 100%
+		margin-bottom: 0.5rem; // 8px
+	}
+
+	.emptyInboxDescription {
+		font-size: 0.875rem; // 14px
+		font-weight: 400;
+		color: var(--jh-green-04);
+	}
+}

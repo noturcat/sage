@@ -1,0 +1,342 @@
+@use '@/styles/mixins' as *;
+
+.navbar {
+	display: flex;
+	flex-direction: column-reverse;
+	justify-content: space-between;
+	align-items: flex-start;
+	padding-bottom: 1em;
+	gap: 1em;
+	height: 100%;
+	overflow: visible;
+
+	.menu {
+		display: none;
+
+		.menuAvatar {
+			width: fit-content;
+			margin-left: -0.5em;
+		}
+
+		&[data-layout='true'] {
+			display: block;
+		}
+
+		@include breakpoint(wide, max) {
+			display: block;
+		}
+	}
+
+	.avatar {
+		width: fit-content;
+		margin-left: -0.5em;
+
+		&[data-layout='true'] {
+			display: none;
+		}
+
+		@include breakpoint(wide, max) {
+			display: none;
+		}
+	}
+
+	.content {
+		width: max-content;
+		padding: 0.88em;
+	}
+
+	.item {
+		display: flex;
+		align-items: center;
+		width: 100%;
+		flex-shrink: 0;
+		gap: 1.19em;
+		color: var(--jh-green-04);
+		font-size: 1.125rem;
+		font-style: normal;
+		font-weight: 400;
+		line-height: 1.8rem;
+
+		&:hover {
+			color: var(--jh-green-04);
+		}
+
+		.icon {
+			&[data-icon='Notifications'] {
+				@include icon('/icons/notifications.svg');
+			}
+			&[data-icon='Saved'] {
+				@include icon('/icons/saved.svg');
+			}
+			&[data-icon='Profile'] {
+				@include icon('/icons/profile.svg');
+			}
+		}
+	}
+
+	.links {
+		display: flex;
+		flex-direction: column;
+		max-width: fit-content;
+		gap: 0.25em;
+		flex: 1 1 auto;
+		overflow-y: auto;
+		scrollbar-width: none;
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		.divider {
+			color: var(--jh-gray-15);
+		}
+
+		.link {
+			display: flex;
+			align-items: center;
+			gap: 1.16em;
+			min-height: 3.13rem;
+			width: 100%;
+			align-self: stretch;
+			color: var(--jh-green-04);
+			padding: 0 1em;
+			border-radius: 9999px;
+
+			&[data-layout='true'] {
+				justify-content: center;
+			}
+
+			&[data-layout='false'] {
+				justify-content: flex-start;
+			}
+
+			@include breakpoint(wide, max) {
+				&[data-layout='false'] {
+					justify-content: center;
+				}
+			}
+
+			&[data-active='true'] {
+				font-weight: 700;
+				background-color: rgba(var(--jh-green-04-rgb), 0.1);
+			}
+
+			&:hover {
+				background-color: rgba(var(--jh-green-04-rgb), 0.1);
+			}
+		}
+
+		.label {
+			font-size: 1.13rem;
+			font-style: normal;
+			font-weight: 400;
+			line-height: 1.8em;
+			display: none;
+
+			&[data-layout='true'] {
+				display: none;
+			}
+
+			@include breakpoint(wide, min) {
+				display: block;
+			}
+		}
+
+		.iconImage {
+			height: 22px;
+			width: 22px;
+			display: inline-block;
+		}
+
+		.icon {
+			--size: 22px;
+
+			&[data-icon='Home'] {
+				@include icon('/icons/home.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-home.svg', var(--size));
+				}
+			}
+			&[data-icon='Search'] {
+				@include icon('/icons/search.svg', var(--size));
+			}
+			&[data-icon='Community'] {
+				@include icon('/icons/community.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-community.svg', var(--size));
+				}
+			}
+			&[data-icon='Sage AI'] {
+				@include icon('/icons/sage-ai.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-sage-ai.svg', var(--size));
+				}
+			}
+			&[data-icon='Discovery'] {
+				@include icon('/icons/discover.svg', var(--size));
+
+				&[data-active='true'] {
+					color: var(--jh-green-04);
+					@include icon('/icons/active-discover.svg', var(--size));
+				}
+			}
+			&[data-icon='Threads'] {
+				@include icon('/icons/threads.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-threads.svg', var(--size));
+				}
+			}
+			&[data-icon='Protocols'] {
+				@include icon('/icons/protocols.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-protocols.svg', var(--size));
+				}
+			}
+			&[data-icon='Directory'] {
+				@include icon('/icons/directories.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-directories.svg', var(--size));
+				}
+			}
+			&[data-icon='Messages'] {
+				@include icon('/icons/messages.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-messages.svg', var(--size));
+				}
+			}
+			&[data-icon='Notifications'] {
+				@include icon('/icons/notifications.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-notifications.svg', var(--size));
+				}
+			}
+			&[data-icon='Saved'] {
+				@include icon('/icons/saved.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-saved.svg', var(--size));
+				}
+			}
+			&[data-icon='Profile'] {
+				@include icon('/icons/profile.svg', var(--size));
+
+				&[data-active='true'] {
+					@include icon('/icons/active-profile.svg', var(--size));
+				}
+			}
+
+			&[data-show='true'] {
+				display: none;
+			}
+
+			&[data-show='false'] {
+				display: inline-block;
+			}
+		}
+	}
+
+	.dashboard {
+		display: flex;
+		align-items: center;
+		align-self: stretch;
+		padding-top: 1.5em;
+		width: 100%;
+
+		&[data-layout='true'] {
+			justify-content: center;
+		}
+
+		&[data-layout='false'] {
+			justify-content: flex-start;
+		}
+	}
+
+	.tip {
+		text-decoration: none;
+		width: 100%;
+	}
+
+	.button {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.87em 3em;
+		align-self: stretch;
+		background-color: var(--jh-green-04);
+
+		&[data-layout='true'] {
+			width: 3.13rem;
+			height: 3.13rem;
+			padding: 0;
+			border-radius: 9999px;
+		}
+
+		@include breakpoint(wide, max) {
+			width: 3.13rem;
+			height: 3.13rem;
+			padding: 0;
+			border-radius: 9999px;
+		}
+
+		&:hover {
+			background-color: rgba(var(--jh-green-04-rgb), 0.8);
+		}
+
+		.label {
+			display: none;
+			font-size: 0.872rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 0.872rem;
+
+			@include breakpoint(wide, max) {
+				display: none;
+			}
+
+			@include breakpoint(wide, min) {
+				display: inline-block;
+			}
+
+			&[data-layout='true'] {
+				display: none !important;
+			}
+
+			@include breakpoint(wide, min) {
+				&[data-layout='false'] {
+					display: inline-block;
+				}
+			}
+		}
+
+		.icon {
+			@include breakpoint(wide, max) {
+				display: inline-block;
+			}
+
+			@include breakpoint(wide, min) {
+				display: none;
+			}
+
+			&[data-layout='true'] {
+				display: inline-block !important;
+			}
+
+			@include breakpoint(wide, min) {
+				&[data-layout='false'] {
+					display: none;
+				}
+			}
+
+			.iconDashboard {
+				@include icon('/icons/dashboard.svg', 24px);
+			}
+		}
+	}
+}

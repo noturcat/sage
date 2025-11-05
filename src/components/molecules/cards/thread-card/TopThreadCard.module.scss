@@ -1,0 +1,54 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	padding: 1.25em;
+	gap: 0.75em;
+	position: relative;
+	border-radius: 0.75em;
+	background:
+		linear-gradient(
+			180deg,
+			rgba(var(--black-rgb), 0.5) 0%,
+			rgba(var(--jh-green-04-rgb), 0.9) 53.93%
+		),
+		var(--image-url, none) center / cover no-repeat;
+	width: 14.75rem;
+	min-height: 17.5rem;
+	flex-shrink: 0;
+	cursor: pointer;
+
+	.content {
+		height: 100%;
+		margin-top: auto;
+		display: flex;
+		flex-direction: column;
+		gap: 0.75em;
+
+		.title {
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 3;
+			line-clamp: 3;
+			overflow: hidden;
+			color: var(--white);
+			font-size: 1rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+		}
+
+		.avatarGroup {
+			display: flex;
+			align-items: center;
+			gap: 0.43em;
+
+			.people {
+				color: var(--white);
+				font-size: 0.75rem;
+				font-style: normal;
+				font-weight: 600;
+				line-height: normal;
+			}
+		}
+	}
+}

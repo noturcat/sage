@@ -1,0 +1,77 @@
+@use '@/styles/mixins' as *;
+
+.avatar {
+	display: flex;
+	width: 100%;
+	padding: 0.75em;
+	border-radius: 9999px;
+	max-width: fit-content;
+	align-items: center;
+	justify-content: space-between;
+	cursor: pointer;
+	gap: 1em;
+
+	@include breakpoint(wide, max) {
+		gap: 0;
+	}
+
+	&:hover {
+		background-color: rgba(var(--jh-green-04-rgb), 0.1);
+	}
+
+	&:focus-visible {
+		background-color: rgba(var(--jh-green-04-rgb), 0.1);
+	}
+
+	.avatarGroup {
+		display: flex;
+		align-items: center;
+		gap: 1.16rem;
+	}
+
+	.info {
+		display: flex;
+		flex-direction: column;
+
+		&[data-layout='true'] {
+			display: none;
+		}
+
+		@include breakpoint(wide, max) {
+			display: none;
+		}
+
+		.name,
+		.username {
+			font-size: 1rem;
+			font-style: normal;
+			line-height: normal;
+		}
+
+		.name {
+			font-weight: 700;
+		}
+
+		.username {
+			font-weight: 400;
+		}
+	}
+
+	.action {
+		display: flex;
+		align-items: center;
+		gap: 0.75em;
+
+		@include breakpoint(wide, max) {
+			display: none;
+		}
+
+		.icon {
+			color: var(--jh-green-03);
+
+			.iconNotification {
+				@include icon('/icons/active-notifications.svg', 24px);
+			}
+		}
+	}
+}

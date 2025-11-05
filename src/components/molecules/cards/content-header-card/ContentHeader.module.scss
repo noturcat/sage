@@ -1,0 +1,63 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.81rem;
+	width: 100%;
+}
+
+.title {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+	gap: 1em;
+	font-size: 2.5rem;
+	font-style: normal;
+	font-weight: 900;
+	line-height: 2.5rem;
+}
+
+.contentInfo {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	width: 100%;
+}
+
+.authorInfo {
+	display: flex;
+	align-items: center;
+	gap: 1.31em;
+}
+
+.footer {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+	width: 100%;
+}
+
+.badge {
+	font-size: 0.88rem;
+	font-weight: 500;
+	background-color: transparent;
+	color: var(--jh-green-03);
+	border: 1px solid var(--jh-green-03);
+
+	&:hover {
+		background-color: rgba(var(--jh-green-03-rgb), 0.1);
+		color: var(--jh-green-03);
+	}
+}
+
+.actions {
+	background-color: var(--jh-green-01);
+	color: var(--jh-white-01);
+	font-size: 0.88rem;
+	font-weight: 500;
+
+	&:hover {
+		background-color: rgba(var(--jh-green-01-rgb), 0.9);
+	}
+}

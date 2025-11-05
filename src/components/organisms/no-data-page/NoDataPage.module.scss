@@ -1,0 +1,30 @@
+.noDataPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 50vh;
+  &Content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    &Icon {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &Button {
+        background-color: var(--jh-green-01);
+        fill: var(--jh-gray-01);
+      }
+    }
+    &Description {
+      color: var(--jh-gray-01);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      line-height: 14.93px;
+    }
+  }
+}

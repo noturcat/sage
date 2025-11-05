@@ -1,0 +1,76 @@
+@use '@/styles/mixins' as *;
+
+// Common text styles
+%text-base {
+	font-size: 14px;
+	font-style: normal;
+	line-height: 14.93px; // 100%
+}
+
+%text-green-04 {
+	@extend %text-base;
+	color: var(--jh-green-04);
+}
+
+.showSeparator {
+	border-bottom: 1px solid var(--jh-gray-05);
+	padding-bottom: 18px;
+}
+
+.userInfoContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	.userInfo {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+
+		.userInfoAvatar {
+			margin-right: 8px;
+		}
+
+		.userInfoCompact {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+
+			.userFullName {
+				@extend %text-green-04;
+				font-weight: 700;
+			}
+
+			.userName {
+				@extend %text-green-04;
+				font-weight: 400;
+			}
+		}
+
+		.userFullName {
+			@extend %text-green-04;
+			font-weight: 700;
+		}
+
+		.userName {
+			@extend %text-green-04;
+			font-weight: 400;
+		}
+	}
+
+	.iconCreateContainer {
+		border-radius: 999px;
+		flex-shrink: 0;
+		border: none;
+		outline: none;
+		box-shadow: none;
+		padding: 6px;
+		cursor: pointer;
+		background-color: transparent;
+
+		.iconCreate {
+			color: var(--jh-green-01);
+			@include icon('/icons/info-circle.svg', 20px);
+		}
+	}
+}

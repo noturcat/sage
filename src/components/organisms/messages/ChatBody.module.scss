@@ -1,0 +1,22 @@
+@use '@/styles/mixins' as *;
+
+.chatBodyContainer {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	min-height: 0;
+
+	.chatHeaderContainer {
+		flex: 0 0 auto;
+	}
+
+	.chatMessagesContainer {
+		flex: 1 1 0;
+		min-height: 0;
+		overflow-y: auto;
+	}
+
+	.chatInputContainer {
+		flex: 0 0 auto;
+	}
+}

@@ -1,0 +1,183 @@
+@use '@/styles/mixins' as *;
+
+// Common button styles
+%button-base {
+	box-shadow: none;
+	background-color: transparent;
+	color: var(--jh-green-04);
+}
+
+.chatRoomContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 1.88em;
+	height: 100%;
+	overflow: hidden;
+	min-height: 0;
+
+	.title {
+		color: var(--jh-green-04);
+		font-size: 1.25rem;
+		font-weight: 700;
+		line-height: 1em;
+	}
+
+	.searchInput {
+		outline: none;
+		border: 1px solid var(--jh-green-01);
+		flex: 0 0 2.44rem;
+		height: 100%;
+		padding: 0 1.25em;
+
+		.iconCreate {
+			color: var(--jh-green-01);
+			@include icon('/icons/magnifying-glass.svg', 20px);
+		}
+	}
+
+	.filterContainer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex: 0 0 auto;
+
+		.filterButtons {
+			display: flex;
+		}
+
+		.filterButton {
+			@extend %button-base;
+		}
+
+		.filterButton.active {
+			background-color: var(--jh-green-04);
+			color: var(--white);
+
+			&:hover {
+				background-color: var(--jh-green-03);
+			}
+		}
+
+		.requestBlockContainer {
+			display: flex;
+			gap: 1em; // 10px
+
+			.requestsButton {
+				color: var(--jh-green-04);
+				font-size: 0.75rem;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 1.68281rem;
+				cursor: pointer;
+			}
+		}
+	}
+
+	.messageListContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25em;
+		padding-right: 0.5em;
+		flex: 1 1 0;
+		min-height: 0;
+		overflow-y: auto;
+
+		// Smooth scrolling behavior
+		scroll-behavior: smooth;
+
+		// Custom scrollbar styling for webkit browsers
+		&::-webkit-scrollbar {
+			width: 6px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #9ca3af; // Grey color
+			border-radius: 3px;
+			opacity: 0.6;
+			transition: opacity 0.3s ease;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+
+		// Auto-hide scrollbar after 3 seconds of inactivity
+		&::-webkit-scrollbar-thumb {
+			animation: fadeOutScrollbar 3s ease-in-out forwards;
+		}
+
+		// Show scrollbar on hover or scroll
+		&:hover::-webkit-scrollbar-thumb,
+		&:focus::-webkit-scrollbar-thumb {
+			animation: none;
+			opacity: 0.8;
+		}
+
+		// Fallback for Firefox
+		scrollbar-width: thin;
+		scrollbar-color: #9ca3af transparent;
+	}
+
+	.skeletonList {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5em;
+
+		.skeletonItem {
+			display: flex;
+			align-items: center;
+			gap: 0.875em;
+			padding: 0.5em 0.75em;
+
+			.skeletonAvatar {
+				width: 2.8125rem;
+				height: 2.8125rem;
+				flex-shrink: 0;
+			}
+
+			.skeletonTextContainer {
+				display: flex;
+				flex-direction: column;
+				gap: 0.25em;
+				flex: 1;
+
+				.skeletonName {
+					width: 40%;
+					height: 0.875rem;
+				}
+
+				.skeletonMessage {
+					width: 70%;
+					height: 0.75rem;
+				}
+			}
+		}
+	}
+
+	.errorContainer {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 2em;
+		color: var(--jh-red-01);
+		font-size: 0.88rem;
+		text-align: center;
+	}
+}
+
+// Keyframe animation for scrollbar fade out
+@keyframes fadeOutScrollbar {
+	0% {
+		opacity: 0.6;
+	}
+	70% {
+		opacity: 0.6;
+	}
+	100% {
+		opacity: 0.1;
+	}
+}

@@ -1,0 +1,54 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	min-height: 100vh;
+	background-color: var(--white);
+}
+
+.heroSection {
+	background-image: url('/images/auth-bg.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+	padding: 40px 32px;
+	max-width: 50%;
+}
+
+.heroContent {
+	height: 100%;
+	margin: 0 auto;
+	padding-bottom: calc(28px + 40px);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	max-width: 75%;
+}
+
+.title {
+	color: var(--white) !important;
+	text-align: center;
+	font-size: 65px;
+	font-style: normal;
+	font-weight: 900 !important;
+	line-height: 1.08;
+	margin-bottom: 32px;
+}
+
+.subtitle {
+	color: var(--white);
+	text-align: center;
+	font-size: 24px !important;
+	font-style: normal;
+	font-weight: 700 !important;
+	line-height: 1.25;
+	margin: 0;
+	padding: 0;
+}
+
+.formWrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 auto;
+}

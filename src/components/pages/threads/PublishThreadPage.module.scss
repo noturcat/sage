@@ -1,0 +1,89 @@
+@use '@/styles/mixins' as *;
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	background-color: var(--white);
+	padding: 2em;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	gap: 1.75em;
+	height: 100svh;
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+
+	.buttonsContainer {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1em;
+
+		.backButton {
+			background-color: var(--jh-white-01);
+			color: var(--jh-green-01);
+			border: 1px solid var(--jh-gray-08);
+
+			&:hover {
+				background-color: rgba(var(--jh-white-01-rgb), 0.8);
+			}
+
+			.iconBack {
+				@include icon('/icons/chevron-left.svg', 16px);
+			}
+		}
+
+		.publish {
+			font-size: 1.5rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+		}
+
+		.continueButton {
+			background-color: var(--jh-green-01);
+			color: var(--jh-white-01);
+			font-size: 0.88rem;
+
+			&:hover {
+				background-color: rgba(var(--jh-green-01-rgb), 0.9);
+			}
+
+			.publishing {
+				display: flex;
+				align-items: center;
+				gap: 1ch;
+
+				.spinner {
+					animation: spin 1s linear infinite;
+					@include icon('/icons/loader.svg', 12px);
+				}
+			}
+		}
+	}
+
+	.content {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		gap: 1.75em;
+		width: 100%;
+
+		.errorMessage {
+			color: var(--jh-red-01);
+			font-size: 0.75rem;
+			font-weight: 400;
+			line-height: 1.2;
+		}
+	}
+
+	@keyframes spin {
+		to {
+			transform: rotate(360deg);
+		}
+	}
+}

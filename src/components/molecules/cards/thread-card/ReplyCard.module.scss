@@ -1,0 +1,157 @@
+@use '@/styles/mixins' as *;
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
+	padding: 1.25em;
+	background-color: var(--white);
+	border-radius: 0.75rem;
+	min-height: 9.81rem;
+	flex-shrink: 0;
+}
+
+.header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+}
+
+.replyInfo {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.replyInfoContent {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+
+.replyInfoName,
+.replyInfoDate {
+	font-size: 0.88rem;
+	font-style: normal;
+	line-height: normal;
+}
+
+.replyInfoName {
+	font-weight: 700;
+}
+
+.replyInfoDate {
+	display: flex;
+	align-items: center;
+	gap: 1ch;
+	font-weight: 400;
+}
+
+.replyActions {
+	display: flex;
+	align-items: center;
+	gap: 1em;
+}
+
+.contentWrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5em;
+}
+
+.content {
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	line-clamp: 3;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: normal;
+	transition: all 0.3s ease;
+}
+
+.contentExpanded {
+	-webkit-line-clamp: unset;
+	line-clamp: unset;
+	display: block;
+	overflow: visible;
+}
+
+.toggleButton {
+	color: var(--jh-green-01);
+	font-size: 0.88rem;
+	font-weight: 500;
+	cursor: pointer;
+	padding: 0;
+	text-align: left;
+	align-self: flex-start;
+	transition: color 0.2s ease;
+
+	&:hover {
+		background-color: transparent;
+		color: rgba(var(--jh-green-01-rgb), 0.8);
+		text-decoration: underline;
+	}
+}
+
+.voteAction {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.25em 0.75em 0.25em 1em;
+	gap: 0.5em;
+	background-color: var(--jh-green-01);
+	color: var(--white);
+	border-radius: 12.5rem;
+	cursor: pointer;
+}
+
+.voteCount {
+	font-size: 0.88rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.5rem;
+}
+
+.voteButtons {
+	display: flex;
+	align-items: center;
+}
+
+.voteButton {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.25em;
+	padding: 0.12em;
+
+	&:hover {
+		background-color: var(--jh-green-02);
+	}
+}
+
+.quoteButton {
+	background-color: var(--jh-green-01);
+	color: var(--jh-white-01);
+
+	&:hover {
+		background-color: rgba(var(--jh-green-01-rgb), 0.8);
+	}
+}
+
+.iconUpvote {
+	color: var(--white);
+	@include icon('/icons/chevron-up.svg', 16px);
+}
+
+.iconDownvote {
+	color: var(--white);
+	@include icon('/icons/chevron-down.svg', 16px);
+}
+
+.iconQuote {
+	@include icon('/icons/quote.svg', 16px);
+}

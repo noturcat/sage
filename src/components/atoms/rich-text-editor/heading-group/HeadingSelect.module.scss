@@ -1,0 +1,34 @@
+@use '@/styles/mixins.scss' as *;
+
+.headingSelect {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	color: var(--jh-gray-02);
+	z-index: 9999;
+
+	&:hover {
+		background-color: rgba(var(--off-white-rgb), 0.8);
+	}
+}
+
+.iconDefault {
+	@include icon('/icons/tiptap-default-header.svg');
+}
+
+.iconHeading1 {
+	@include icon('/icons/tiptap-header-1.svg');
+}
+
+.iconHeading2 {
+	@include icon('/icons/tiptap-header-2.svg');
+}
+
+.iconHeading3 {
+	@include icon('/icons/tiptap-header-3.svg');
+}
+
+.iconHeading4 {
+	@include icon('/icons/tiptap-header-4.svg');
+}

@@ -1,0 +1,33 @@
+.wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 32px;
+	max-height: 100vh;
+	overflow: hidden;
+	padding: 41px 0;
+
+	&Left {
+		display: flex;
+		flex-direction: column;
+		gap: 24px;
+		padding-right: 16px;
+	}
+	&Right {
+		width: 100%;
+		max-height: 100vh;
+		overflow-y: auto;
+		scrollbar-width: none; /* Firefox */
+		-ms-overflow-style: none; /* Internet Explorer 10+ */
+
+		&::-webkit-scrollbar {
+			display: none; /* WebKit */
+		}
+	}
+}
+
+.sidebarAd {
+	margin-top: 16px;
+	border-radius: 8px;
+	overflow: hidden;
+}

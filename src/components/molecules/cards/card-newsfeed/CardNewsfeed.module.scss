@@ -1,0 +1,216 @@
+@use '@/styles/mixins' as *;
+
+.card {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	padding: 1.16em 1.56em 0.45em 1.56em;
+	background-color: var(--white);
+	height: 100%;
+	width: 100%;
+	flex-shrink: 0;
+	border-radius: 0.75em;
+	box-shadow: 0 0.5px 5px 0 rgba(var(--black-rgb), 0.1);
+
+	.header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1em;
+		width: 100%;
+
+		.authorInfo {
+			display: flex;
+			align-items: center;
+			gap: 1em;
+
+			.info {
+				display: flex;
+				flex-direction: column;
+
+				.post {
+					display: flex;
+					align-items: center;
+					gap: 0.5ch;
+					width: 100%;
+
+					.name {
+						font-size: 0.88rem;
+						font-style: normal;
+						font-weight: 700;
+						line-height: normal;
+						flex-shrink: 0;
+					}
+
+					.sharedBy {
+						font-size: 0.88rem;
+						font-style: normal;
+						font-weight: 400;
+						line-height: normal;
+						color: var(--jh-gray-01);
+						flex-shrink: 0;
+					}
+
+					.groupName {
+						font-size: 0.88rem;
+						font-style: normal;
+						font-weight: 700;
+						line-height: normal;
+						color: var(--jh-blue-01);
+						display: -webkit-box;
+						-webkit-line-clamp: 1;
+						line-clamp: 1;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+
+				.postInfo {
+					display: flex;
+					align-items: center;
+					gap: 0.6em;
+
+					.timeElapsed {
+						color: var(--jh-gray-01);
+						font-size: 0.75rem;
+						font-style: normal;
+						font-weight: 500;
+						line-height: normal;
+					}
+
+					.iconPrivacy {
+						color: var(--jh-gray-01);
+						@include icon('/icons/world.svg', 12px);
+					}
+				}
+			}
+		}
+		.content {
+			min-width: max-content;
+
+			.iconArrow {
+				@include icon('/icons/arrow-slant.svg', 10px);
+			}
+		}
+
+		.iconEllipsis {
+			@include icon('/icons/ellipsis.svg');
+		}
+	}
+
+	.body {
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+
+		.image {
+			position: relative;
+			width: 100%;
+			min-height: 19.44rem;
+			flex-shrink: 0;
+			border-radius: 0.75em;
+			overflow: hidden;
+
+			.imageElement {
+				object-fit: cover;
+				object-position: center;
+			}
+
+			.imageOverlay {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				position: absolute;
+				bottom: 0;
+				height: 4.25rem;
+				width: 100%;
+				padding: 0.7em 1.7em 1em 1.7em;
+				background-color: var(--jh-light-green-03);
+				border: 1px solid var(--jh-gray-01);
+				border-top: none;
+				border-radius: 0 0 0.75em 0.75em;
+
+				.overlayContent {
+					display: flex;
+					flex-direction: column;
+					gap: 0.5ch;
+
+					.membersCount {
+						font-size: 0.75rem;
+						font-style: normal;
+						font-weight: 500;
+						line-height: normal;
+						color: var(--jh-gray-01);
+					}
+
+					.groupName {
+						font-size: 1rem;
+						font-style: normal;
+						font-weight: 700;
+						line-height: normal;
+						display: -webkit-box;
+						-webkit-line-clamp: 1;
+						line-clamp: 1;
+						-webkit-box-orient: vertical;
+						overflow: hidden;
+						text-overflow: ellipsis;
+					}
+				}
+
+				.joinButton {
+					font-size: 0.75rem;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 1.75rem;
+					min-height: 1.72rem;
+					padding: 0 1.18rem;
+					flex-shrink: 0;
+					background-color: var(--jh-green-01);
+
+					&:hover {
+						background-color: rgba(var(--jh-green-01-rgb), 0.9);
+					}
+				}
+			}
+		}
+	}
+
+	.footer {
+		display: flex;
+		align-items: center;
+		margin-left: -0.5em;
+
+		.icons {
+			--color: var(--jh-gray-01);
+			display: flex;
+			align-items: center;
+			gap: 1.38em;
+			font-size: 0.875rem;
+			font-style: normal;
+			font-weight: 700;
+			line-height: normal;
+			color: var(--color);
+
+			.icon {
+				display: flex;
+				align-items: center;
+
+				.iconHeart {
+					color: var(--color);
+					@include icon('/icons/heart.svg', 16px);
+				}
+
+				.iconComment {
+					color: var(--color);
+					@include icon('/icons/comment.svg', 16px);
+				}
+
+				.iconRepost {
+					color: var(--color);
+					@include icon('/icons/repost.svg', 16px);
+				}
+			}
+		}
+	}
+}

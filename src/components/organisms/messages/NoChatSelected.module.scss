@@ -1,0 +1,166 @@
+@use '@/styles/mixins' as *;
+
+.noChatSelectedContainer {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	height: 100%;
+	width: 100%;
+
+	.descriptionContainer {
+		text-align: center;
+	}
+
+	.chat {
+		@include icon('/icons/no-chat-selected.svg', 90px);
+		background-color: var(--jh-green-04);
+		margin-bottom: 1.44em;
+	}
+	.request {
+		@include icon('/icons/message-request.svg', 90px);
+		background-color: var(--jh-green-04);
+		margin-bottom: 1.44em;
+	}
+
+	.noChatSelectedText {
+		color: var(--jh-green-04);
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 0.5em;
+	}
+
+	.noChatSelectedDescription {
+		font-size: 0.88em;
+		font-weight: 400;
+		color: var(--jh-green-04);
+		padding-bottom: 1.13em;
+	}
+
+	.newChatButton {
+		background-color: var(--jh-green-01);
+		padding: 0.5em 1.25em;
+	}
+}
+
+.resultsSection {
+	min-height: 18rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.suggestionTitle {
+	font-size: 0.75rem;
+	font-weight: bold;
+	line-height: 1rem;
+	color: black;
+}
+
+.suggestionListContainer {
+	margin-top: 0.75em;
+	display: flex;
+	flex-direction: column;
+	gap: 0.2em;
+	flex: 1;
+	min-height: 16rem;
+
+	.suggestionItem {
+		cursor: pointer;
+		padding: 0.7em 1em;
+		border-radius: 0.5em;
+		transition: all 0.2s ease;
+
+		&:hover {
+			background-color: #cacaca;
+		}
+
+		&.active {
+			background-color: var(--jh-green-01);
+			color: var(--white);
+
+			&:hover {
+				background-color: var(--jh-green-02);
+			}
+
+			span {
+				color: var(--white) !important;
+			}
+		}
+	}
+
+	&.scrollable {
+		max-height: 20rem;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+}
+
+.suggestionItemSkeleton {
+	display: flex;
+	align-items: center;
+	gap: 0.5em;
+	padding: 0.7em 1em;
+	border-radius: 0.5em;
+
+	.skeletonAvatar {
+		width: 40px;
+		height: 40px;
+		flex-shrink: 0;
+	}
+
+	.skeletonTextContainer {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25em;
+		flex: 1;
+
+		.skeletonName {
+			width: 60%;
+			height: 0.875rem;
+		}
+
+		.skeletonUsername {
+			width: 40%;
+			height: 0.75rem;
+		}
+	}
+}
+
+.dialogTitleContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.dialogTitle {
+		font-size: 1.5rem;
+		font-weight: 700;
+		line-height: 1.25rem;
+		color: var(--jh-green-04);
+		margin-bottom: 1.13em;
+		text-align: center;
+	}
+}
+
+.searchInput {
+	outline: none;
+	border: 1px solid var(--jh-green-01);
+	height: 2.4375rem;
+	padding: 0 1.25em;
+	flex: 0 0 auto;
+
+	.iconCreate {
+		color: var(--jh-green-01);
+		@include icon('/icons/magnifying-glass.svg', 20px);
+	}
+}
+
+.createNewChatButton {
+	background-color: var(--jh-green-01);
+	padding: 1em 2em;
+	width: 100%;
+
+	&:hover {
+		background-color: var(--jh-green-02);
+	}
+}

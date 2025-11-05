@@ -1,0 +1,33 @@
+@use '@/styles/mixins' as *;
+
+.edit {
+	background-color: transparent;
+	border-color: var(--jh-green-01);
+	color: var(--jh-green-01);
+	min-height: 2.38rem;
+	min-width: 7.25rem;
+
+	&:hover {
+		background-color: rgba(var(--jh-green-01-rgb), 0.05);
+		color: var(--jh-green-01);
+	}
+}
+
+.form {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	overflow-y: auto;
+
+	.save {
+		display: inline-flex;
+		padding: 1em 2em;
+		gap: 0.5em;
+		align-self: flex-end;
+		background-color: var(--jh-green-01);
+
+		.iconArrowRight {
+			@include icon('/icons/arrow-right.svg');
+		}
+	}
+}

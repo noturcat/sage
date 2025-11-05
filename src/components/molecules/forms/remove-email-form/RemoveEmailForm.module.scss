@@ -1,0 +1,27 @@
+.removeEmailForm {
+  max-width: 650px;
+
+  .formGroup {
+    margin: 32px 0;
+  
+    .formContent {
+      h4 {
+        color: var(--black);
+        font-size: 34px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 0.59;
+        margin-bottom: 36px;
+      }
+
+      .intructions {
+        color: var(--black);
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 1.88;
+        margin-bottom: 36px;
+      }
+    }
+  }
+}

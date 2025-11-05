@@ -1,0 +1,97 @@
+@use '@/styles/mixins' as *;
+
+// Common text styles
+%text-base {
+	font-size: 14px;
+	font-style: normal;
+	line-height: 14.93px; // 100%
+}
+
+%text-green-04 {
+	@extend %text-base;
+	color: var(--jh-green-04);
+}
+
+.messageContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.875em; // 14px
+	cursor: pointer;
+	padding: 0 0.75em;
+	width: 100%; // Ensure full width
+	box-sizing: border-box; // Include padding in width calculation
+
+	.messageItem {
+		display: flex;
+		align-items: center;
+		gap: 0.875em; // 14px
+		padding: 0.5em 0 0.75em; // 8px top, 12px bottom
+
+		.messageItemAvatar {
+			width: 2.8125rem !important;
+			height: 2.8125rem !important;
+		}
+
+		.messageItemContent {
+			display: flex;
+			flex-direction: column;
+			gap: 0.25em; // 4px
+			flex: 1; // Allow content to take available space
+			min-width: 0; // Allow shrinking below content size
+
+			.topInfo {
+				display: flex;
+				gap: 0.5em; // 6px
+
+				.messageItemName {
+					@extend %text-green-04;
+					font-weight: 700;
+				}
+
+				.messageItemUsername,
+				.messageItemSeparator {
+					@extend %text-green-04;
+					font-weight: 400;
+				}
+
+				.messageItemDate {
+					@extend %text-base;
+					color: var(--jh-green-06);
+					font-weight: 400;
+				}
+
+				.muteIcon {
+					@include icon('/icons/mute-bell.svg', 10px);
+					color: var(--jh-green-04);
+					align-self: center;
+				}
+			}
+
+			.botInfo {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 0.5em; // 8px
+
+				.messageText {
+					color: var(--jh-green-03);
+					flex: 1;
+					display: -webkit-box;
+					-webkit-line-clamp: 1;
+					line-clamp: 1;
+					-webkit-box-orient: vertical;
+					overflow: hidden;
+					text-overflow: ellipsis;
+				}
+
+				.messageItemDate {
+					@extend %text-base;
+					color: var(--jh-green-06);
+					font-weight: 400;
+					flex-shrink: 0; // Prevent date from shrinking
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,60 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+	width: 100%;
+	&Header {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		&Title {
+			color: var(--black);
+			font-size: 18px;
+			font-weight: 700;
+			line-height: 14.93px;
+		}
+		&Actions {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 16px;
+			&Extra {
+				background: var(--white);
+				color: var(--black);
+				font-size: 10px;
+				font-weight: 500;
+				line-height: 11.868px;
+			}
+		}
+	}
+	&Grid {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(280px, 1fr));
+		gap: 16px;
+		align-items: stretch;
+
+		@media (max-width: 1200px) {
+			grid-template-columns: repeat(2, minmax(280px, 1fr));
+		}
+
+		@media (max-width: 720px) {
+			grid-template-columns: 1fr;
+		}
+		&Extra {
+			background-color: var(--white);
+		}
+
+		&ExtraFooter {
+			display: flex;
+			flex-direction: column;
+			gap: 40px;
+			> button {
+				align-self: flex-end;
+			}
+			&Content {
+				width: 100%;
+			}
+		}
+	}
+}

@@ -1,0 +1,103 @@
+@use '@/styles/mixins' as *;
+
+.pingContainer {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+
+	// Size variants
+	&.small {
+		width: 0.56rem; // 9px
+		height: 0.56rem; // 9px
+	}
+
+	&.medium {
+		width: 1rem;
+		height: 1rem;
+	}
+
+	&.large {
+		width: 1.25rem;
+		height: 1.25rem;
+	}
+}
+
+.pingDot {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	z-index: 3;
+	animation: pingPulse 2s infinite;
+
+	// Color variants
+	.pingContainer.green & {
+		background-color: var(--jh-green-04);
+	}
+
+	.pingContainer.red & {
+		background-color: #ef4444;
+	}
+
+	.pingContainer.blue & {
+		background-color: #3b82f6;
+	}
+}
+
+.pingRing {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	z-index: 1;
+	animation: pingRing 2s infinite;
+
+	&:nth-child(2) {
+		animation-delay: 0s;
+	}
+
+	&:nth-child(3) {
+		animation-delay: 0.5s;
+	}
+
+	// Color variants
+	.pingContainer.green & {
+		border: 2px solid var(--jh-green-04);
+	}
+
+	.pingContainer.red & {
+		border: 2px solid #ef4444;
+	}
+
+	.pingContainer.blue & {
+		border: 2px solid #3b82f6;
+	}
+}
+
+@keyframes pingPulse {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.1);
+		opacity: 0.8;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
+
+@keyframes pingRing {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(2.5);
+		opacity: 0;
+	}
+}

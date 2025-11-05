@@ -1,0 +1,24 @@
+@use '@/styles/mixins' as *;
+
+.floatingButton {
+	width: 4rem;
+	height: 4rem;
+	position: fixed;
+	bottom: 2.75em;
+	right: 3em;
+	border-radius: 9999px;
+	background-color: var(--jh-green-04);
+	color: var(--white);
+	filter: drop-shadow(0 0.28em 0.72em rgba(var(--black-rgb), 0.25));
+	z-index: 50;
+
+	@include breakpoint(large, max) {
+		bottom: 1.75em;
+		right: 1.75em;
+	}
+
+	&:hover {
+		background-color: var(--jh-green-03);
+		color: var(--white);
+	}
+}

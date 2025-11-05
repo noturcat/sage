@@ -1,0 +1,66 @@
+.wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.13em;
+	width: 100%;
+
+	.authorWrapper {
+		display: flex;
+		align-items: center;
+		gap: 1em;
+	}
+
+	.authorInfo {
+		display: flex;
+		flex-direction: column;
+		gap: 0.25em;
+
+		> .authorName {
+			font-size: 0.88rem;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+			line-clamp: 1;
+			overflow: hidden;
+			text-wrap: balance;
+		}
+
+		> .authorDescription {
+			font-size: 0.63em;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: 1;
+			line-clamp: 1;
+			overflow: hidden;
+			text-wrap: balance;
+		}
+	}
+
+	.followButton,
+	.followingButton {
+		min-width: 5rem;
+		height: 1.69rem;
+		padding: 0 0.8em;
+		font-size: 0.75rem;
+		font-style: normal;
+		font-weight: 500;
+		line-height: 1.68rem;
+		transition: transform 0.3s linear;
+	}
+
+	.followButton {
+		border-color: var(--black);
+		background-color: transparent;
+		color: var(--black);
+	}
+
+	.followingButton {
+		background-color: var(--jh-green-01);
+		color: var(--white);
+
+		&:hover {
+			background-color: rgba(var(--jh-green-01-rgb), 0.9);
+		}
+	}
+}

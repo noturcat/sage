@@ -1,0 +1,17 @@
+@use '@/styles/mixins' as *;
+
+.titleSkeleton {
+	min-height: 2.25rem;
+	width: 100%;
+	border-radius: 0.5rem;
+}
+
+.iconSave {
+	color: var(--jh-green-01);
+
+	&:hover {
+		background-color: rgba(var(--jh-green-01-rgb), 0.8);
+	}
+
+	@include icon('/icons/bookmark.svg', 24px);
+}

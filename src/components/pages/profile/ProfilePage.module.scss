@@ -1,0 +1,36 @@
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 1em;
+	width: 100%;
+	// max-width: 975px;
+	padding: 0 1em 1em 1em;
+
+	.content {
+		display: flex;
+		flex-direction: column;
+		flex: 1;
+		width: 100%;
+		gap: 1.44em;
+	}
+
+	.content > .grid {
+		display: flex;
+		flex-direction: row;
+		gap: 1.44em;
+		width: 100%;
+		align-items: flex-start;
+
+		.demographic {
+			width: 40%;
+			height: fit-content;
+		}
+
+		.posts {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			width: 60%;
+		}
+	}
+}

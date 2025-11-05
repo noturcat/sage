@@ -1,0 +1,162 @@
+@use '@/styles/mixins.scss' as *;
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25em;
+}
+
+.divider {
+	width: 100%;
+	height: 1px;
+	stroke-width: 0.09em;
+	background: var(--jh-gray-05);
+}
+
+// toolbar layout
+.menuBar {
+	display: flex;
+	gap: 0.25em;
+	margin: 0 0.5em 0.5em 0.25em;
+	z-index: 50;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.buttonGroup {
+	display: flex;
+	gap: 0.25em;
+	align-items: center;
+
+	&:not(:last-child)::after {
+		content: '';
+		width: 1px;
+		height: 1.25rem;
+		background-color: var(--jh-gray-10);
+		margin-left: 0.5em;
+	}
+}
+
+// button states
+.button {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	color: var(--jh-gray-02);
+
+	&:hover {
+		background-color: rgba(var(--off-white-rgb), 0.8);
+	}
+
+	&[data-active='true'] {
+		background-color: var(--jh-gray-11);
+		color: var(--black);
+		border-color: var(--jh-gray-08);
+
+		&:hover {
+			background-color: var(--jh-gray-11);
+		}
+	}
+
+	&:disabled {
+		opacity: 0.4;
+		cursor: not-allowed;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			color: var(--jh-gray-02);
+		}
+	}
+}
+
+// history icons
+.iconUndo {
+	@include icon('/icons/tiptap-undo.svg');
+}
+
+.iconRedo {
+	@include icon('/icons/tiptap-redo.svg');
+}
+
+// structure icons
+.iconBlockquote {
+	@include icon('/icons/tiptap-quote-block.svg');
+}
+
+.iconCodeBlock {
+	@include icon('/icons/tiptap-code-block.svg');
+}
+
+// text formatting icons
+.iconBold {
+	@include icon('/icons/tiptap-bold.svg');
+}
+
+.iconItalic {
+	@include icon('/icons/tiptap-italicize.svg');
+}
+
+.iconUnderline {
+	@include icon('/icons/tiptap-underline.svg');
+}
+
+.iconStrike {
+	@include icon('/icons/tiptap-striketrough.svg');
+}
+
+.iconHighlight {
+	@include icon('/icons/tiptap-highlight.svg');
+}
+
+.iconCode {
+	@include icon('/icons/tiptap-code.svg');
+}
+
+.iconLink {
+	@include icon('/icons/tiptap-link.svg');
+}
+
+// text modifier icons
+.iconSubscript {
+	@include icon('/icons/tiptap-subscript.svg');
+}
+
+.iconSuperscript {
+	@include icon('/icons/tiptap-superscript.svg');
+}
+
+// alignment icons
+.iconLeft {
+	@include icon('/icons/tiptap-align-left.svg');
+}
+
+.iconCenter {
+	@include icon('/icons/tiptap-align-center.svg');
+}
+
+.iconRight {
+	@include icon('/icons/tiptap-align-right.svg');
+}
+
+.iconJustify {
+	@include icon('/icons/tiptap-align-justify.svg');
+}
+
+// content insertion icons
+.iconHorizontalRule {
+	@include icon('/icons/tiptap-horizontal_line.svg');
+}
+
+.iconTable {
+	@include icon('/icons/tiptap-table.svg');
+}
+
+.iconYoutube {
+	@include icon('/icons/tiptap-youtube.svg');
+}
+
+.iconImage {
+	@include icon('/icons/tiptap-add-image.svg');
+}

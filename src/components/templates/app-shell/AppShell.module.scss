@@ -1,0 +1,105 @@
+@use '@/styles/mixins' as *;
+
+.shell {
+	--header-height: 4.125rem;
+	display: flex;
+	flex-direction: column;
+	min-block-size: 100dvh;
+}
+
+.header {
+	block-size: var(--header-height);
+	background-color: var(--white);
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+	top: 0;
+}
+
+.body {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	max-width: 1440px;
+	margin: var(--header-height) auto 0 auto;
+	min-height: calc(100vh - var(--header-height)); // Changed from 100% to viewport-based
+}
+
+.nav {
+	height: calc(100vh - var(--header-height));
+	flex: 0 0 auto;
+	padding: 1em 1em 0 0.5em;
+	position: sticky;
+	top: var(--header-height);
+	border-right: 1px solid var(--jh-gray-15);
+	left: 0;
+	flex-shrink: 0;
+	z-index: 10;
+}
+
+.aside {
+	flex: 0 0 18.75rem;
+	min-width: 0;
+	height: calc(100vh - var(--header-height));
+	padding: 2em 1em 0 2em;
+	position: sticky;
+	top: var(--header-height);
+	border-left: 1px solid var(--jh-gray-15);
+	right: 0;
+	z-index: 10;
+
+	@include breakpoint(wide, max) {
+		display: none;
+	}
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 0;
+	min-width: 0;
+	position: relative;
+	z-index: 1;
+}
+
+.filter {
+	position: fixed;
+	top: var(--header-height);
+	z-index: 10;
+	height: var(--header-height);
+	width: var(--main-width, 100%);
+	background-color: rgba(var(--jh-white-01-rgb), 0.8);
+	visibility: hidden;
+
+	&[data-ready] {
+		visibility: visible;
+	}
+}
+
+.content {
+	padding: 0 var(--header-height);
+
+	&[data-messages='true'] {
+		padding: 0;
+	}
+
+	&[data-community='true'] {
+		padding-top: var(--header-height);
+	}
+
+	@include breakpoint(medium, max) {
+		padding: 0 1em;
+	}
+}
+
+.floatingIcon {
+	padding-left: 0.25em;
+
+	.iconCreate {
+		@include icon('/icons/create.svg', 26px);
+	}
+}
+
+.floatingContent {
+	width: max-content;
+}

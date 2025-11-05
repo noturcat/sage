@@ -1,0 +1,60 @@
+@use '@/styles/mixins' as *;
+
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: 1em 0;
+	gap: 2em;
+	width: 100%;
+
+	.titleSortFilter {
+		display: flex;
+		justify-content: space-between;
+		gap: 1em;
+
+		@include breakpoint(large, max) {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0.5em;
+		}
+
+		.selectOptions {
+			display: flex;
+			align-items: center;
+			gap: 0.5em;
+		}
+	}
+
+	.trendingThreadsList {
+		display: flex;
+		flex-direction: column;
+		gap: 1.13em;
+
+		.skeletonGroup {
+			display: flex;
+			flex-direction: column;
+			gap: 1.13em;
+
+			.skeleton {
+				min-height: 9.25rem;
+				border-radius: 0.75em;
+			}
+		}
+
+		.noThreads {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 9.25rem;
+			border-radius: 0.75em;
+		}
+
+		.noThreads p {
+			color: var(--jh-gray-01);
+			font-size: 0.88rem;
+			font-style: normal;
+			font-weight: 500;
+			line-height: 1.25rem;
+		}
+	}
+}

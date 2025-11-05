@@ -1,0 +1,13 @@
+.separator {
+	background-color: var(--jh-gray-05);
+
+	&.horizontal {
+		width: 100%;
+		height: 1px;
+	}
+
+	&.vertical {
+		width: 1px;
+		height: 20px;
+	}
+}

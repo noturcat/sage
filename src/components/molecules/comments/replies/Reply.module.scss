@@ -1,0 +1,32 @@
+.card {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.13em;
+	flex: 1 1 auto;
+	width: 100%;
+
+	.editor {
+		width: 100%;
+
+		.placeholder {
+			display: flex;
+			width: 100%;
+			padding: 1.38rem;
+			flex-direction: column;
+			align-items: flex-start;
+			background-color: var(--white);
+			border-radius: 0.75rem;
+			border: 1px solid var(--jh-gray-08);
+			cursor: pointer;
+
+			.text {
+				color: var(--jh-gray-01);
+				font-size: 0.88rem;
+				font-style: normal;
+				font-weight: 400;
+				line-height: normal;
+			}
+		}
+	}
+}

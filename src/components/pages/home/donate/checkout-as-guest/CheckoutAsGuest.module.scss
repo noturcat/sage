@@ -1,0 +1,337 @@
+.container {
+	width: 100%;
+	height: 100%;
+	max-height: 619.566px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	gap: 2rem;
+	padding: 0 3rem;
+	overflow-y: auto;
+	flex: 1;
+	.formHeader {
+		width: 100%;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		> label {
+			color: var(--jh-green-01);
+			text-align: center;
+			font-size: 24px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 20px;
+			margin-bottom: 1rem;
+		}
+		span {
+			visibility: hidden;
+		}
+	}
+
+	.donationSteps {
+		display: flex;
+		flex-direction: row;
+		gap: 26px;
+		button {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			color: var(--jh-green-05);
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 16px;
+			background-color: transparent;
+			gap: 16px;
+			div {
+				border-top: 6px solid var(--jh-green-05);
+				border-radius: 16px;
+				width: 108px;
+			}
+			span {
+				text-align: center;
+			}
+		}
+
+		.active {
+			color: var(--jh-green-01);
+			font-size: 12px;
+			font-style: normal;
+			font-weight: 700;
+			line-height: 16px;
+			div {
+				border-top: 6px solid var(--jh-green-01);
+			}
+		}
+	}
+	.form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+		flex: 1;
+		height: 100%;
+		max-height: 681px;
+		overflow-y: auto;
+		.formRow {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1rem;
+		}
+		.formContainer {
+			width: 100%;
+			height: 100%;
+			overflow-y: auto;
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			padding: 0 1rem;
+			.formField {
+				justify-content: flex-end;
+				display: flex;
+				flex-direction: column;
+				label {
+					&::after {
+						content: '*';
+						color: var(--jh-red-01);
+					}
+				}
+				.formLabel {
+					display: block;
+					margin-bottom: 8px;
+					font-weight: bold;
+					color: var(--black);
+					font-size: 14px;
+					text-align: left;
+					.input {
+						color: var(--jh-gray-01);
+						font-size: 12px;
+						font-style: normal;
+						font-weight: 500;
+						line-height: 16px;
+						border-radius: 6px;
+						height: 42px;
+						flex-shrink: 0;
+
+						// Responsive behavior within selectWrapper
+						.selectWrapper & {
+							flex: 1;
+							min-width: 0;
+
+							@media (max-width: 768px) {
+								width: 100%;
+								flex: none;
+							}
+						}
+
+						// Country code dropdown - narrower
+						.selectWrapper .selectContainer & {
+							flex: 0 0 auto;
+							width: 120px;
+							min-width: 120px;
+							max-width: 120px;
+
+							@media (max-width: 768px) {
+								width: 100%;
+								flex: none;
+								min-width: 0;
+								max-width: none;
+							}
+						}
+
+						// Phone number input - wider
+						.selectWrapper &:not(.selectContainer .input) {
+							flex: 1;
+							min-width: 0;
+
+							@media (max-width: 768px) {
+								width: 100%;
+								flex: none;
+							}
+						}
+					}
+				}
+				.amountButtons {
+					width: 100%;
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+					gap: 1rem;
+					.extraClass {
+						color: rgba(0, 0, 0, 0.5);
+						font-size: 20px;
+						font-style: normal;
+						font-weight: 700;
+						line-height: 16px;
+						padding: 24px 48px;
+						border: 1px solid var(--jh-gray-01);
+						&.active {
+							color: var(--white);
+							background: var(--jh-green-01);
+							border: none;
+						}
+					}
+				}
+				.donationOptions {
+					width: 100%;
+					display: grid;
+					grid-template-columns: 1fr 1fr;
+					gap: 1rem;
+					.extraClass {
+						color: rgba(0, 0, 0, 0.5);
+						font-size: 16px;
+						font-style: normal;
+						font-weight: 700;
+						line-height: 16px;
+						padding: 16px 60px;
+						background: var(--white);
+						border: 1px solid var(--jh-gray-01);
+						&.active {
+							color: var(--white);
+							background: var(--jh-green-01);
+							border: none;
+						}
+					}
+				}
+			}
+			.checkboxContainer {
+				display: flex;
+				flex-direction: row;
+				gap: 8px;
+				align-items: center;
+
+				.checkbox {
+					border: 2px solid var(--jh-gray-04);
+					width: 12px;
+					height: 12px;
+					cursor: pointer;
+					appearance: none;
+					-webkit-appearance: none;
+					-moz-appearance: none;
+					border-radius: 2px;
+					position: relative;
+					background-color: transparent;
+					transition: all 0.2s ease;
+
+					&:checked {
+						background-color: var(--jh-green-01);
+						border-color: var(--jh-green-01);
+
+						&::after {
+							content: '';
+							position: absolute;
+							left: 2px;
+							top: -1px;
+							width: 3px;
+							height: 5px;
+							border: solid white;
+							border-width: 0 2px 2px 0;
+							transform: rotate(45deg);
+							display: block;
+						}
+					}
+				}
+
+				span {
+					color: rgba(0, 0, 0, 0.5);
+					font-size: 12px;
+					font-style: normal;
+					font-weight: 500;
+					line-height: 16px;
+				}
+			}
+		}
+
+		.orderSummary {
+			display: flex;
+			flex-direction: column;
+			gap: 12px;
+			h3 {
+				color: var(--black);
+				font-size: 12px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 16px;
+			}
+			&Container {
+				display: flex;
+				flex-direction: column;
+				gap: 0px;
+				.summaryRow {
+					display: grid;
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+				span {
+					color: var(--black);
+					font-size: 12px;
+					font-style: normal;
+					font-weight: 400;
+					line-height: 16px;
+					&.pending {
+						color: var(--jh-orange-01);
+					}
+				}
+			}
+		}
+		.submitButton {
+			margin-top: 0.5rem;
+			align-self: flex-end;
+		}
+	}
+}
+
+.success {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	left: 0;
+	background-color: var(--white);
+	z-index: 1000;
+	.successContent {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 12px;
+		.successContentText {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			h2 {
+				color: var(--jh-green-01);
+				text-align: center;
+				font-size: 24px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 20px;
+			}
+		}
+		.successContentButton {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			gap: 215px;
+			width: 100%;
+			max-width: 400px;
+			width: 245px;
+			p {
+				color: var(--black);
+				text-align: center;
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 400;
+				line-height: 16px;
+			}
+			.doneButton {
+				width: 100% !important;
+			}
+		}
+	}
+}

@@ -1,0 +1,21 @@
+/* reserved for private layout styles */
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh; /* Changed from width: 100% */
+	width: 100%;
+}
+
+.header {
+	width: 100%;
+}
+
+.content {
+	flex-grow: 1;
+	width: 100%;
+}
+
+.footer {
+	width: 100%;
+}

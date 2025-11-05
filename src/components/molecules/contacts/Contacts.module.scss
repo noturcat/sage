@@ -1,0 +1,50 @@
+.contacts {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	color: var(--black);
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: normal;
+	div h1 {
+		color: var(--black);
+		font-size: 16px;
+		font-style: normal;
+		font-weight: 700;
+		line-height: normal;
+	}
+	&List {
+		display: flex;
+		flex-direction: column;
+		gap: 16px;
+	}
+	&Item {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		justify-content: space-between;
+		&Avatar {
+			width: 40px;
+			height: 40px;
+		}
+		&Info {
+			display: flex;
+			flex-direction: column;
+			gap: 4px;
+			width: 100%;
+			h3 {
+				color: var(--black);
+				font-size: 14px;
+				font-style: normal;
+				font-weight: 700;
+				line-height: 14.93px;
+			}
+		}
+		&Actions {
+			display: flex;
+			align-items: center;
+			gap: 8px;
+		}
+	}
+}

@@ -1,0 +1,49 @@
+@use '@/styles/mixins' as *;
+
+/**
+ * Skeleton Component Styles
+ * 
+ * Provides loading placeholder with pulse animation
+ * Uses project's design system colors and animations
+ */
+
+.skeleton {
+	background-color: var(--jh-gray-01);
+	height: 1rem;
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+// Radius variations
+.radius {
+	&--sm {
+		border-radius: 0.25rem; // 4px
+	}
+	&--md {
+		border-radius: 0.38rem; // 6px
+	}
+	&--lg {
+		border-radius: 0.5rem; // 8px
+	}
+	&--xl {
+		border-radius: 0.63rem; // 10px
+	}
+	&--2xl {
+		border-radius: 0.75rem; // 12px
+	}
+	&--3xl {
+		border-radius: 1rem; // 16px
+	}
+	&--full {
+		border-radius: 9999px; // 100%
+	}
+}
+
+@keyframes pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.5;
+	}
+}
