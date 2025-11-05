@@ -1,14 +1,29 @@
 import { NextRequest, NextResponse } from 'next/server'
 import OpenAI from 'openai'
 import { SageAIPromptEngine } from '@/lib/sage-ai/sageAIPromptEngine'
+import type { SearchItem } from '@/components/organisms/global-search/GlobalSearch.types'
 
-const openai = new OpenAI({
-	apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY,
-})
+// Support both server-safe and public env names; prefer server one
+const OPENAI_KEY = process.env.OPENAI_API_KEY || process.env.NEXT_PUBLIC_OPENAI_API_KEY
+const openai = OPENAI_KEY ? new OpenAI({ apiKey: OPENAI_KEY }) : null
 
 export async function POST(request: NextRequest) {
 	try {
 		const { searchResults, searchQuery } = await request.json()
+
+		// If no OpenAI key, return a stubbed response so the page works in demo mode
+		if (!openai) {
+			const topSources: SearchItem[] = Array.isArray(searchResults)
+				? (searchResults as SearchItem[]).slice(0, 5)
+				: []
+			return NextResponse.json({
+				answer:
+					'Demo mode: OpenAI key not configured. I cannot generate a real AI answer, but I can still show query flow. Try setting OPENAI_API_KEY to enable full answers.',
+				sources: topSources,
+				searchQuery,
+				questionAnalysis: { type: 'unknown', confidence: 0.2, keywords: [], context: [] },
+			})
+		}
 
 		// Generate dynamic prompt based on question type
 		const systemPrompt = await SageAIPromptEngine.generatePrompt(searchQuery, searchResults)

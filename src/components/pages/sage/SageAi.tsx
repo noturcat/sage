@@ -23,7 +23,6 @@ type QAPair = {
 const SageAi = () => {
 	const [messages, setMessages] = useState<ChatMessage[]>([])
 	const [isSearching, setIsSearching] = useState(false)
-	const [isConfigured, setIsConfigured] = useState(false)
 	const messagesEndRef = useRef<HTMLDivElement>(null)
 	const chatContainerRef = useRef<HTMLDivElement>(null)
 
@@ -45,9 +44,7 @@ const SageAi = () => {
 		return pairs
 	}
 
-	useEffect(() => {
-		setIsConfigured(sageAIService.isConfigured())
-	}, [])
+	// Demo mode requires no external configuration
 
 	const aiMessagesCount = messages.filter(msg => !msg.isUser).length
 	useEffect(() => {
@@ -123,12 +120,8 @@ const SageAi = () => {
 						<Textarea
 							variant="large"
 							onSubmit={handleTextSubmit}
-							disabled={!isConfigured}
-							placeholder={
-								isConfigured
-									? 'Ask me anything about the community...'
-									: 'AI features not configured'
-							}
+							disabled={false}
+							placeholder={'Ask me anything about the community...'}
 						/>
 					</div>
 				</section>
@@ -185,12 +178,8 @@ const SageAi = () => {
 						<Textarea
 							variant="large"
 							onSubmit={handleTextSubmit}
-							disabled={!isConfigured}
-							placeholder={
-								isConfigured
-									? 'Ask me anything about the community...'
-									: 'AI features not configured'
-							}
+							disabled={false}
+							placeholder={'Ask me anything about the community...'}
 						/>
 					</div>
 				</div>
