@@ -9,6 +9,7 @@
 		"start": "NODE_ENV=production node server.js",
 		"lint": "next lint",
 		"ci": "npm run lint && npm run type-check",
+		"type-check": "tsc -p tsconfig.json --noEmit",
 		"postbuild": "next-sitemap"
 	},
 	"dependencies": {
