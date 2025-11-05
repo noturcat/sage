@@ -22,7 +22,9 @@ function readEnv(): TypesenseEnvConfig {
 		host: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_HOST),
 		port: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_PORT),
 		protocol: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_PROTOCOL),
-		searchKey: sanitize(process.env.NEXT_PUBLIC_TYPESENSE_SEARCH_KEY),
+		searchKey: sanitize(
+			process.env.NEXT_PUBLIC_TYPESENSE_SEARCH_KEY || process.env.NEXT_PUBLIC_TYPESENSE_API_KEY
+		),
 		timeoutSeconds: Number(
 			(process.env.NEXT_PUBLIC_TYPESENSE_TIMEOUT_SECONDS || '10').toString().trim()
 		),
@@ -37,6 +39,14 @@ export function getTypesenseClient(): Client | null {
 
 	if (!host || !port || !protocol || !searchKey) {
 		// Silently return null if not configured; caller can handle gracefully
+		if (process.env.NODE_ENV !== 'production') {
+			console.warn('Typesense is not configured. Missing:', {
+				host: Boolean(host),
+				port: Boolean(port),
+				protocol: Boolean(protocol),
+				searchKey: Boolean(searchKey),
+			})
+		}
 		return null
 	}
 
