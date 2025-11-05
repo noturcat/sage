@@ -167,9 +167,8 @@ export class SageAIService {
 		try {
 			const sources = await this.searchRelevantContent(userQuery, options)
 
-			// Call server-side API with proper URL construction
-			const apiUrl =
-				typeof window !== 'undefined' ? `${window.location.origin}/api/sage-ai` : '/api/sage-ai'
+            // Call server-side API with a relative path (avoids base/origin issues)
+            const apiUrl = '/api/sage-ai'
 
 			const response = await fetch(apiUrl, {
 				method: 'POST',
@@ -183,9 +182,19 @@ export class SageAIService {
 				}),
 			})
 
-			if (!response.ok) {
-				throw new Error(`API request failed: ${response.status}`)
-			}
+            if (!response.ok) {
+                if (response.status === 404) {
+                    // Demo fallback: API route missing – return placeholder content
+                    return {
+                        answer:
+                            'Demo mode: API route /api/sage-ai is not available. Ensure your Next.js dev server is running and the route exists at src/app/api/sage-ai/route.ts.',
+                        sources: sources,
+                        searchQuery: userQuery,
+                        questionAnalysis: { type: 'unknown', confidence: 0.2, keywords: [], context: [] },
+                    }
+                }
+                throw new Error(`API request failed: ${response.status}`)
+            }
 
 			const data = await response.json()
 
