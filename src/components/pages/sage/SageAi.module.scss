@@ -1,4 +1,4 @@
-@use '@/styles/mixins' as *;
+@use 'mixins' as *;
 
 .wrapperMain {
 	display: flex;
@@ -37,7 +37,7 @@
 
 	&Searches {
 		display: flex;
-		flex-direction: flex-start;
+		flex-direction: row;
 		align-items: flex-start;
 		flex: 1 1 auto;
 		min-height: 0;
@@ -95,21 +95,22 @@
 				}
 
 				// .qaContainer {
-				// 	display: flex;
-				// 	flex-direction: column;
-				// 	gap: 12px;
-				// 	width: 100%;
-				// 	padding: 20px;
-				// 	border-radius: 12px;
-				// 	scroll-snap-align: start;
-				// 	scroll-snap-stop: normal;
-				// 	flex-shrink: 0;
-				// }
+				.qaContainer {
+					display: flex;
+					flex-direction: column;
+					gap: 12px;
+					width: 100%;
+					padding: 20px;
+					border-radius: 12px;
+					scroll-snap-align: start;
+					scroll-snap-stop: normal;
+					flex-shrink: 0;
+				}
 
-				// .lastQaContainer {
-				// 	min-height: 80vh;
-				// 	padding: 35px 0 0 0;
-				// }
+				.lastQaContainer {
+					min-height: 70vh;
+					padding: 35px 0 0 0;
+				}
 
 				.message {
 					display: flex;
